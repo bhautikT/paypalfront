@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { capturePAyment } from '../../Api/services/PaypalTopaypalService';
+import { capturePAyment } from '../../../Api/services/PaypalTopaypalService';
 
 const ReturnUrl = () => {
   const { loading } = useSelector((state) => state.payPaltoPaypal);
@@ -62,7 +62,7 @@ const ReturnUrl = () => {
               Payment Confirmation Successful!
             </h1>
             <button
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/home')}
               className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300"
             >
               Go Back to Home
