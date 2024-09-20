@@ -8,6 +8,7 @@ import Login from "../modules/auth/Login";
 import Dashboard from "../modules/dashboard";
 import Layoat from "../modules/layout/Layoat";
 import PapPaTopaypal from "../modules/payments/PapPaTopaypal";
+import ReturnUrl from "../modules/payments/ReturnPage";
 
 const Router = () => {
   // Define public routes
@@ -28,6 +29,16 @@ const Router = () => {
         <Suspense>
           <PublicRoute>
             <PapPaTopaypal/>
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/returnUrl",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <ReturnUrl/>
           </PublicRoute>
         </Suspense>
       ),
