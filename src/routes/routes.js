@@ -1,4 +1,3 @@
-
 import { Suspense } from "react";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
@@ -10,6 +9,7 @@ import Layoat from "../modules/layout/Layoat";
 import PapPaTopaypal from "../modules/payments/PaypalTopaypal/PapPaTopaypal";
 import ReturnUrl from "../modules/payments/PaypalTopaypal/ReturnPage";
 import HomePage from "../modules/payments/commonComponents/Home";
+import PayPalCheckout from "../modules/payments/PaypalTopaypal/PayPalCheckout";
 
 const Router = () => {
   // Define public routes
@@ -19,7 +19,7 @@ const Router = () => {
       element: (
         <Suspense>
           <PublicRoute>
-            <HomePage/>
+            <HomePage />
           </PublicRoute>
         </Suspense>
       ),
@@ -29,7 +29,17 @@ const Router = () => {
       element: (
         <Suspense>
           <PublicRoute>
-            <PapPaTopaypal/>
+            <PapPaTopaypal />
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/advance-checkout",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <PayPalCheckout />
           </PublicRoute>
         </Suspense>
       ),
@@ -39,7 +49,7 @@ const Router = () => {
       element: (
         <Suspense>
           <PublicRoute>
-            <ReturnUrl/>
+            <ReturnUrl />
           </PublicRoute>
         </Suspense>
       ),
