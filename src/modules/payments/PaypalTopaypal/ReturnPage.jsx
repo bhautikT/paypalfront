@@ -1,8 +1,8 @@
 // src/components/ReturnUrl.js
-import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { capturePAyment } from '../../../Api/services/PaypalTopaypalService';
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { capturePAyment } from "../../../Api/services/PaypalTopaypalService";
 
 const ReturnUrl = () => {
   const { loading } = useSelector((state) => state.payPaltoPaypal);
@@ -12,7 +12,7 @@ const ReturnUrl = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const orderId = params.get('token');
+    const orderId = params.get("token");
 
     // Call the backend to capture the payment
     const capturePayment = async () => {
@@ -62,7 +62,7 @@ const ReturnUrl = () => {
               Payment Confirmation Successful!
             </h1>
             <button
-              onClick={() => navigate('/home')}
+              onClick={() => navigate("/")}
               className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300"
             >
               Go Back to Home

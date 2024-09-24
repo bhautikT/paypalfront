@@ -10,6 +10,7 @@ import PapPaTopaypal from "../modules/payments/PaypalTopaypal/PapPaTopaypal";
 import ReturnUrl from "../modules/payments/PaypalTopaypal/ReturnPage";
 import HomePage from "../modules/payments/commonComponents/Home";
 import PayPalCheckout from "../modules/payments/PaypalTopaypal/PayPalCheckout";
+import SucccessPage from "../modules/payments/PaypalTopaypal/SucccessPage";
 
 const Router = () => {
   // Define public routes
@@ -50,6 +51,16 @@ const Router = () => {
         <Suspense>
           <PublicRoute>
             <ReturnUrl />
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/successPage",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <SucccessPage />
           </PublicRoute>
         </Suspense>
       ),
