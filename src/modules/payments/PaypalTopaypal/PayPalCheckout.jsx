@@ -7,13 +7,24 @@ import {
 } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {
+  advanceCaptureOrder,
+  fetchClientToken,
+} from "../../../Api/services/AdvancePaymentService";
+import { useDispatch, useSelector } from "react-redux";
 
 const PayPalCheckout = () => {
+  const dispatch = useDispatch();
+
   const [orderId, setOrderId] = useState(null);
-  const [clientToken, setClientToken] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const clientToken = useSelector((state) => state.advancePaypal.clientToken);
+  const captureOrderData = useSelector(
+    (state) => state.advancePaypal.captureOrder
+  );
+  const success = captureOrderData?.status === "COMPLETED";
   const [loading, setLoading] = useState(false); // Loading state
 
+  console.log(captureOrderData, "captureOrderData");
   const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState(null);
@@ -23,18 +34,8 @@ const PayPalCheckout = () => {
   });
 
   useEffect(() => {
-    const fetchClientToken = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:3001/api/v1/advance/generate-client-token"
-        );
-        setClientToken(response?.data?.clientToken);
-      } catch (err) {
-        setErrorMessage("Error fetching client token");
-      }
-    };
-    fetchClientToken();
-  }, []);
+    dispatch(fetchClientToken());
+  }, [dispatch]);
 
   const createOrder = async () => {
     setLoading(true);
@@ -55,24 +56,13 @@ const PayPalCheckout = () => {
   };
 
   const captureOrder = async (orderID) => {
-    setLoading(true); // Set loading to true
-
+    const neworderID = orderID?.orderId;
     try {
-      const response = await axios.post(
-        "http://localhost:3001/api/v1/advance/capture-order",
-        {
-          orderID: orderID?.orderId,
-        }
-      );
-      console.log(response, "reeeee");
-      if (response?.data?.capture?.result?.status === "COMPLETED") {
-        setSuccess(true);
-        setLoading(false); // Set loading to false
-        navigate("/successPage");
-      }
-    } catch (err) {
-      setErrorMessage("Error capturing payment");
-      setLoading(false); // Set loading to false
+      await dispatch(advanceCaptureOrder(neworderID));
+      navigate("/successPage");
+    } catch (error) {
+      console.error("Error capturing order:", error);
+      setErrorMessage("Error capturing order");
     }
   };
 
