@@ -1,5 +1,5 @@
 // src/components/ReturnUrl.js
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { capturePAyment } from "../../../Api/services/PaypalTopaypalService";
@@ -9,6 +9,7 @@ const ReturnUrl = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const hasCalled = useRef(false); // Ref to track if API call has been made
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -16,7 +17,10 @@ const ReturnUrl = () => {
 
     // Call the backend to capture the payment
     const capturePayment = async () => {
-      await dispatch(capturePAyment(orderId));
+      if (!hasCalled.current) {
+        hasCalled.current = true; // Set the ref to true once API call is made
+        dispatch(capturePAyment(orderId));
+      }
     };
 
     if (orderId) {
