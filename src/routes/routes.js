@@ -11,6 +11,10 @@ import ReturnUrl from "../modules/payments/PaypalTopaypal/ReturnPage";
 import HomePage from "../modules/payments/commonComponents/Home";
 import PayPalCheckout from "../modules/payments/PaypalTopaypal/PayPalCheckout";
 import SucccessPage from "../modules/payments/PaypalTopaypal/SucccessPage";
+import PayPalButton from "../modules/payments/Fastlane-by-PayPal/FastlanePayPal";
+import PaypalSave from "../modules/payments/savemethods/PayPalSave";
+import CardForm from "../modules/payments/UserCardSave/CardForm";
+import StoredCards from "../modules/payments/UserCardSave/userCardSaveMethods";
 
 const Router = () => {
   // Define public routes
@@ -61,6 +65,46 @@ const Router = () => {
         <Suspense>
           <PublicRoute>
             <SucccessPage />
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/fastlane-by-paypal",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <PayPalButton />
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/save",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <PaypalSave />
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/card-form",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <CardForm />
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/cardisplay",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <StoredCards />
           </PublicRoute>
         </Suspense>
       ),
