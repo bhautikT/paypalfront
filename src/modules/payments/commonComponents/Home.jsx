@@ -21,10 +21,10 @@ const HomePage = () => {
             PayPal to PayPal Account
           </button>
           <button
-            onClick={() => navigate('/standard-account')}
+            onClick={() => navigate('/fastlane-by-paypal')}
             className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300"
           >
-            Standard Account Method
+            Fastlane By PayPal
           </button>
           {/* Add more buttons as needed for additional methods */}
           <button

@@ -1,4 +1,3 @@
-
 import { Suspense } from "react";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
@@ -10,6 +9,10 @@ import Layoat from "../modules/layout/Layoat";
 import PapPaTopaypal from "../modules/payments/PaypalTopaypal/PapPaTopaypal";
 import ReturnUrl from "../modules/payments/PaypalTopaypal/ReturnPage";
 import HomePage from "../modules/payments/commonComponents/Home";
+import PayPalButton from "../modules/payments/Fastlane-by-PayPal/FastlanePayPal";
+import PaypalSave from "../modules/payments/savemethods/PayPalSave";
+import CardForm from "../modules/payments/UserCardSave/CardForm";
+import StoredCards from "../modules/payments/UserCardSave/userCardSaveMethods";
 
 const Router = () => {
   // Define public routes
@@ -40,6 +43,46 @@ const Router = () => {
         <Suspense>
           <PublicRoute>
             <ReturnUrl/>
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/fastlane-by-paypal",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <PayPalButton/>
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/save",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <PaypalSave/>
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/card-form",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <CardForm/>
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/cardisplay",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <StoredCards/>
           </PublicRoute>
         </Suspense>
       ),
