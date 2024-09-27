@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Smart TV",
+      "price": 499.99,
+      "description": "55-inch 4K Ultra HD Smart LED TV",
+      "image": "/assets/tv.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Refrigerator",
+      "price": 899.99,
+      "description": "Double-Door Frost-Free Refrigerator",
+      "image": "/assets/fridge.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Microwave Oven",
+      "price": 199.99,
+      "description": "Convection Microwave Oven with Grill",
+      "image": "/assets/microwave.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Washing Machine",
+      "price": 699.99,
+      "description": "Front-Loading Washing Machine with Dryer",
+      "image": "/assets/washingmachine.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Laptop",
+      "price": 1299.99,
+      "description": "15.6-inch Full HD Laptop with Intel i7",
+      "image": "/assets/laptop.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Air Conditioner",
+      "price": 599.99,
+      "description": "Split Air Conditioner 1.5 Ton Inverter",
+      "image": "/assets/ac.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Dishwasher",
+      "price": 499.99,
+      "description": "Fully Automatic Dishwasher with 12 Settings",
+      "image": "/assets/dishwasher.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Smartphone",
+      "price": 999.99,
+      "description": "Latest 5G Smartphone with AMOLED Display",
+      "image": "/assets/phone.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Blender",
+      "price": 89.99,
+      "description": "High-Speed Blender with Multiple Attachments",
+      "image": "/assets/blender.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Smart Watch",
+      "price": 299.99,
+      "description": "Smart Watch with Heart Rate Monitor",
+      "image": "/assets/watch.jpg"
+    }
+  ]
+}

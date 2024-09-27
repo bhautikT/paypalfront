@@ -3,18 +3,18 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import { useRoutes } from "react-router-dom";
 import PageNotFound from "../components/PageNotFound";
-import Login from "../modules/auth/Login";
 import Dashboard from "../modules/dashboard";
 import Layoat from "../modules/layout/Layoat";
 import PapPaTopaypal from "../modules/payments/PaypalTopaypal/PapPaTopaypal";
 import ReturnUrl from "../modules/payments/PaypalTopaypal/ReturnPage";
 import HomePage from "../modules/payments/commonComponents/Home";
-import PayPalCheckout from "../modules/payments/PaypalTopaypal/PayPalCheckout";
-import SucccessPage from "../modules/payments/PaypalTopaypal/SucccessPage";
+import PayPalCheckout from "../modules/payments/advanceCheckout/PayPalCheckout";
+import SucccessPage from "../modules/payments/advanceCheckout/SucccessPage";
 import PayPalButton from "../modules/payments/Fastlane-by-PayPal/FastlanePayPal";
 import PaypalSave from "../modules/payments/savemethods/PayPalSave";
 import CardForm from "../modules/payments/UserCardSave/CardForm";
 import StoredCards from "../modules/payments/UserCardSave/userCardSaveMethods";
+import CartPage from "../modules/products/Cart";
 
 const Router = () => {
   // Define public routes
@@ -24,7 +24,7 @@ const Router = () => {
       element: (
         <Suspense>
           <PublicRoute>
-            <HomePage />
+            <CartPage />
           </PublicRoute>
         </Suspense>
       ),
@@ -105,6 +105,16 @@ const Router = () => {
         <Suspense>
           <PublicRoute>
             <StoredCards />
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/home",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <HomePage />
           </PublicRoute>
         </Suspense>
       ),
