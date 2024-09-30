@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// import CancelSubscription from "./CancelSubscription";
+import CancelSubscription from "./CancelSubscription";
 import { resetAdvancePaypal } from "../../../redux/slice/advacncePaymentSlice";
 
 const SucccessPage = () => {
@@ -28,7 +28,7 @@ const SucccessPage = () => {
           >
             Go Back to Home
           </button>
-          {/* <CancelSubscription OrdercaptureId={captureOrderData} /> */}
+          <CancelSubscription OrdercaptureId={captureOrderData} />
         </div>
       </div>
     </div>

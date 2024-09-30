@@ -33,19 +33,19 @@ const HomePage = () => {
             onClick={() => navigate("/advance-checkout")}
             className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300"
           >
-            Advanced Checkout Method
+            Advanced Checkout and Refund Method
           </button>
           <button
             onClick={() => navigate("/cart")}
             className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300"
           >
-             Compleate checkout flow
+            Compleate checkout and Refund flow
           </button>
           <button
             onClick={() => navigate("/user-card")}
             className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300"
           >
-             Make payment with store card
+            Make payment with store card
           </button>
         </div>
       </div>

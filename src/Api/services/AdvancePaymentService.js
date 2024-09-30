@@ -49,7 +49,7 @@ export const advanceCaptureOrder = createAsyncThunk(
         url: "/advance/capture-order",
         data: { orderID },
       });
-      return response.data.capture.result;
+      return response.data.capture;
     } catch (error) {
       return rejectWithValue(
         error?.response?.data?.message || "Error capturing payment"
