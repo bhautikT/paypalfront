@@ -15,12 +15,13 @@ import PaypalSave from "../modules/payments/savemethods/PayPalSave";
 import CardForm from "../modules/payments/UserCardSave/CardForm";
 import StoredCards from "../modules/payments/UserCardSave/userCardSaveMethods";
 import CartPage from "../modules/products/Cart";
+import UserCardHome from "../modules/payments/UserCardSave/UserCardHome";
 
 const Router = () => {
   // Define public routes
   const publicRoutes = [
     {
-      path: "/",
+      path: "/cart",
       element: (
         <Suspense>
           <PublicRoute>
@@ -110,7 +111,17 @@ const Router = () => {
       ),
     },
     {
-      path: "/home",
+      path: "/user-card",
+      element: (
+        <Suspense>
+          <PublicRoute>
+            <UserCardHome/>
+          </PublicRoute>
+        </Suspense>
+      ),
+    },
+    {
+      path: "/",
       element: (
         <Suspense>
           <PublicRoute>
